@@ -98,8 +98,6 @@ class TestStudentLists(TestCase):
         self.assertFalse(test_class.is_enrolled('Student C'))
 
 
-
-
     def test_string_with_students_enrolled(self):
         test_class = ClassList(2)
         test_class.add_student('Taylor Swift')
@@ -139,10 +137,15 @@ class TestStudentLists(TestCase):
     ## TODO write another test for index_of_student. In the case when the 
     # class_list is not empty but has some students.
     # assert that searching for a student name that is not in the list, returns None.
+    def test_index_of_student_is_none_in_populated_class_list(self):
+        test_class = ClassList(1)
+        test_class.add_student('Student A')
+        self.assertIsNone(test_class.index_of_student('Student B'))
 
    
     ## TODO write a test for your new is_class_full method when the class is full. 
     # use assertTrue.
+
     
     ## TODO write a test for your new is_class_full method for when is empty, 
     # and when it is not full. Use assertFalse.

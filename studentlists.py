@@ -14,14 +14,11 @@ class ClassList:
 
     def __init__(self, max_students):
 
-        # TODO raise an exception - StudentError - if max_students is zero or negative.
-        # Write test to confirm.
         if max_students <= 0:
             raise StudentError("number of students must be greater than zero.")
 
         self.class_list = []
         self.max_students = max_students
-
 
     def add_student(self, student):
         ''' Add student if there is space in the class,
@@ -32,7 +29,6 @@ class ClassList:
             else:
                 raise StudentError('Student %s already enrolled, can\'t add again' % student)
 
-
     def remove_student(self, student):
         ''' Remove student from class list. Raises Error if student not in list '''
         if student not in self.class_list:
@@ -40,11 +36,9 @@ class ClassList:
 
         self.class_list.remove(student)
 
-
     def is_enrolled(self, student):
         ''' Verifies if the student is enrolled or not '''
         return student in self.class_list
-
 
     def index_of_student(self, student):
         ''' Returns position of student in list, indexed from 1
@@ -53,16 +47,12 @@ class ClassList:
             return self.class_list.index(student) + 1
         return None
 
-
-    ## TODO add a method called is_class_full.
-    # This should return True or False to indicate if the class is full.
     def is_class_full(self):
         '''will return True if class is full, else false'''
         if len(self.class_list) == self.max_students:
             return True
         else:
             return False
-
 
     def __str__(self):
         return ", ".join(self.class_list)
